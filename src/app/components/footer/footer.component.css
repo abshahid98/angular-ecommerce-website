@@ -1,0 +1,26 @@
+/* Footer style */
+.footer {
+  color: hsl(0, 40%, 4%);
+  margin-top: 2rem;
+  background-color: #d0d6d9;
+  position: relative;
+}
+
+.btn-social-icon {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+.btn-facebook {
+  background-color: #3b5998;
+}
+
+.btn-twitter {
+  background-color: #55acee;
+}
+
+.btn-linkedin {
+  background-color: #0077b5;
+}
