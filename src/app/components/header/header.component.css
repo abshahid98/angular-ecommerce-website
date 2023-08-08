@@ -3,3 +3,16 @@
   top: 10px;
   font-size: 12px;
 }
+/* Add pointer cursor to navbar links and form elements */
+.navbar-nav li.nav-item a.nav-link,
+.form-control,
+.btn {
+  cursor: pointer;
+}
+
+nav {
+  height: 4rem;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}

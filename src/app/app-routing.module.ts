@@ -7,31 +7,34 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'men',
-    component: ProductsComponent
+    component: ProductsComponent,
   },
-      {
+  {
     path: 'women',
-    component: ProductsComponent
+    component: ProductsComponent,
   },
-      {
+  {
     path: 'kids',
-    component: ProductsComponent
+    component: ProductsComponent,
   },
-      {
+  {
     path: 'summer-sale',
-    component: ProductsComponent
-    },
-  ];
+    component: ProductsComponent,
+  },
+  { path: '**', redirectTo: '/home' },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
+  imports: [
+    RouterModule.forRoot(routes, {
       onSameUrlNavigation: 'reload',
       scrollPositionRestoration: 'top',
-    })],
-  exports: [RouterModule]
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

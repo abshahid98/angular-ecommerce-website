@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ProductCardComponent } from './components/products/product-card/product-card.component';
+import { LoginComponent } from './shared/components/login/login.component';
+// import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,12 @@ import { ProductsComponent } from './components/products/products.component';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductCardComponent,
+    LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
