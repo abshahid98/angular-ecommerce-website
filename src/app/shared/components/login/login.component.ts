@@ -1,25 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { Router } from '@angular/router';
-// import { User } from './../../meta/user';
-// import { AuthService } from '../../services/auth/auth.service';
-// import { TranslatePipe } from 'src/app/pipes/translate/translate.pipe';
-// import { DialogRef } from '@angular/cdk/dialog';
-// import { GoogleSigninService } from 'src/app/services/google-signin/google-signin.service';
-// import { LinkedinSigninService } from 'src/app/services/linkedin-signin/linkedin-signin.service';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DialogRef } from '@angular/cdk/dialog';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor() // private router: Router, // private authService: AuthService, // private translate: TranslatePipe, // private dialogRef: DialogRef
-  // private formBuilder: FormBuilder // private googleSigninService: GoogleSigninService,
-  // private linkedinSigninService: LinkedinSigninService
-  {}
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private dialogRef: DialogRef
+  ) {}
   // authForm!: FormGroup;
-  // isSubmitted = false;
+  isSubmitted = false;
   ngOnInit(): void {
     // this.authForm = this.formBuilder.group({
     //   email: ['', Validators.required],
