@@ -1,26 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { DialogRef } from '@angular/cdk/dialog';
+import { Component, Inject } from '@angular/core';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { Router } from '@angular/router';
+// import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialog } from '@angular/material/dialog';
+
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private formBuilder: FormBuilder,
-    private dialogRef: DialogRef
-  ) {}
-  // authForm!: FormGroup;
-  isSubmitted = false;
-  ngOnInit(): void {
-    // this.authForm = this.formBuilder.group({
-    //   email: ['', Validators.required],
-    //   password: ['', Validators.required],
-    // });
-  }
+export class LoginComponent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {} // private dialogRef: DialogRef // private formBuilder: FormBuilder, //private router: Router,
+
   // get formControls() {
   //   return this.authForm.controls;
   // }

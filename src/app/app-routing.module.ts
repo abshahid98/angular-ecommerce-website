@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -24,6 +26,14 @@ const routes: Routes = [
   {
     path: 'summer-sale',
     component: ProductsComponent,
+  },
+  {
+    path: 'shopping-cart',
+    component: ShoppingCartComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
   { path: '**', redirectTo: '/home' },
 ];

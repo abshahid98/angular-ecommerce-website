@@ -1,7 +1,7 @@
-
 .product-container {
   display: flex;
   flex-wrap: wrap;
+  min-height: 37.25rem;
 }
 
 .product-item {
