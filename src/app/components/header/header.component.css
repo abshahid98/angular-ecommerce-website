@@ -1,6 +1,6 @@
 #newBadge {
   position: absolute;
-  top: 10px;
+  top: 15px;
   font-size: 12px;
 }
 /* Add pointer cursor to navbar links and form elements */
@@ -9,7 +9,10 @@
 .btn {
   cursor: pointer;
 }
-
+.fa {
+  font-size: x-large;
+  cursor: pointer;
+}
 nav {
   height: 4rem;
   position: sticky;

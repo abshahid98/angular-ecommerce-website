@@ -1,0 +1,48 @@
+<div class="container">
+    <h3>Shopping Cart</h3>
+    You have xyz items in your shopping cart.
+    <button (click)="clearCart()" class="btn btn-secondary float-right btn-sm">Clear Shopping
+        Cart
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th class="priceCol text-right">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="thumbnail"></div>
+                </td>
+                <td>
+                    title
+                </td>
+                <td>
+                    xyz
+                </td>
+                <td>
+                    Price
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="text-right">Total price: $x</th>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="row mt-3 justify-content-end">
+        <div class="col-auto">
+            <button routerLink="/checkout" class="btn btn-primary">Check Out</button>
+        </div>
+    </div>
+
+</div>

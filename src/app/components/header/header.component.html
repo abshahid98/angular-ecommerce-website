@@ -21,14 +21,20 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" (click)="goTo('summer-sale')">Summer Sale <span id="newBadge"
-                            class="badge rounded-pill bg-success">New
-                        </span></a>
+                            class="badge rounded-pill bg-success">New</span></a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-success" (click)="login()" type="submit">Login</button>
             </form>
+            <a class="nav-link">
+                <i class="fa fa-sharp fa-solid fa-shopping-cart" aria-hidden="true" (click)="goTo('shopping-cart')"></i>
+                <span class="badge badge-warning">
+                    1
+                </span>
+            </a>
+            <button class="btn btn-success" (click)="openLoginPopup()">Login</button>
+
         </div>
     </div>
 </nav>
