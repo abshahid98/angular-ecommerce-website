@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+// import { DataTableModule } from 'angular5-data-table';
 
 /** Components */
 import { AppComponent } from './app.component';
@@ -22,6 +23,11 @@ import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { ProductFormComponent } from './components/admin/product-form/product-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +43,10 @@ import { AdminComponent } from './components/admin/admin.component';
     ShippingFormComponent,
     CheckoutComponent,
     AdminComponent,
+    AdminOrdersComponent,
+    AdminProductsComponent,
+    MyOrdersComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +55,8 @@ import { AdminComponent } from './components/admin/admin.component';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatInputModule,
+    FormsModule,
+    // DataTableModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
