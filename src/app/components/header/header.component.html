@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">E-Shop</a>
+        <a class="navbar-brand" routerLink="/home">E-Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,11 +27,12 @@
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
-            <a *ngIf="isAdmin" class="nav-link">
-                <i class="fa fa-sharp fa-solid fa-shopping-cart" aria-hidden="true" (click)="goTo('shopping-cart')"></i>
-                <span class="badge badge-warning" id="newBadge">
-                    1
-                </span>
+            <a *ngIf="appUser['isLoggedIn']" class="nav-link">
+                <i *ngIf="!appUser['isAdmin']" class="fa fa-sharp fa-solid fa-shopping-cart" aria-hidden="true"
+                    (click)="goTo('shopping-cart')"><span class="badge badge-warning" id="newBadge">
+                        1
+                    </span></i>
+
             </a>
             <ul></ul>
 
@@ -50,14 +51,14 @@
                     <a class="dropdown-item" (click)="logout()">Log Out</a>
                 </div>
             </li> -->
-            <div class="dropdown" *ngIf="appUser; else anonymousUser">
+            <div class="dropdown" *ngIf="appUser['isLoggedIn']; else anonymousUser">
                 <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     X User
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
-                    <a *ngIf="!isAdmin" class="dropdown-item" routerLink="/my/orders">My Orders</a>
-                    <ng-container *ngIf="isAdmin">
+                    <a *ngIf="!appUser['isAdmin']" class="dropdown-item" routerLink="/my/orders">My Orders</a>
+                    <ng-container *ngIf="appUser['isAdmin']">
                         <app-admin></app-admin>
                     </ng-container>
                     <a class="dropdown-item" (click)="logout()">Log Out</a>
@@ -67,6 +68,7 @@
 
             <ng-template #anonymousUser>
                 <button class="btn btn-success" (click)="openLoginPopup()">Login</button>
+                <button style="margin-left: 5px;" class="btn btn-secondary" (click)="openLoginPopup()">Signup</button>
             </ng-template>
 
 

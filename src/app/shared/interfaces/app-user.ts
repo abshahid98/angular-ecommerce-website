@@ -1,6 +1,4 @@
-
 export interface AppUser {
-name: string;
-email: string;
-isAdmin: boolean;
+  isLoggedIn: boolean;
+  isAdmin: boolean;
 }

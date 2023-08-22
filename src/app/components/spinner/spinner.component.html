@@ -1,0 +1,14 @@
+<div
+  *ngIf="loaderService.spinner$ | async"
+  class="dark-overlay"
+  style="z-index: 2147483647"
+>
+  <img class="loader_logo" src="../../../../assets/p_login_logo111.png" />
+  <div class="la-ball-running-dots la-2x">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

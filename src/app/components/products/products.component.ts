@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
 
   private populateProducts() {
     this.products = products;
-    console.log(this.category);
+    // console.log(this.category);
     this.filteredProducts =
       this.category && this.category != 'home'
         ? this.products.filter((p) => p.category === this.category)

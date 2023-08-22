@@ -1,4 +1,8 @@
-<app-header></app-header>
+<app-header [appUser]="authService.isLoggedIn()"></app-header>
 <!-- <app-home></app-home> -->
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+<app-spinner></app-spinner>
+<div *ngIf="isLoading">
+    <app-spinner2></app-spinner2>
+</div>
