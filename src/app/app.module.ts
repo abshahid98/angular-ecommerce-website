@@ -3,6 +3,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 // import { DataTableModule } from 'angular5-data-table';
+// import { HttpModule } from '@angular/http';
+import { environment } from 'src/environments/environment';
+import {
+  HttpClientModule,
+  HttpClient,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { Spinner2Interceptor } from './components/spinner2/spinner2.interceptor';
+import { Spinner2Service } from './components/spinner2/spinner2.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+/** firebase */
+// import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+// import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 /** Components */
 import { AppComponent } from './app.component';
@@ -13,6 +30,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { Spinner2Component } from './components/spinner2/spinner2.component';
 
 /** Packages */
 import { MatDialogModule } from '@angular/material/dialog';
@@ -27,8 +45,7 @@ import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orde
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
-import { FormsModule } from '@angular/forms';
-
+import { SpinnerComponent } from './components/spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +64,8 @@ import { FormsModule } from '@angular/forms';
     AdminProductsComponent,
     MyOrdersComponent,
     ProductFormComponent,
+    SpinnerComponent,
+    Spinner2Component,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +75,19 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatInputModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
     // DataTableModule.forRoot(),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
-  providers: [],
+  providers: [
+    Spinner2Service,
+    { provide: HTTP_INTERCEPTORS, useClass: Spinner2Interceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
