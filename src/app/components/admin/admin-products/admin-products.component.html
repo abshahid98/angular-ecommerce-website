@@ -32,15 +32,17 @@
             <tr>
                 <th>Product</th>
                 <th>Price</th>
+                <th>Category</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{ product.name }}</td>
+            <tr *ngFor="let product of products | async">
+                <td>{{ product.title }}</td>
                 <td>{{ product.price | currency:'USD':true}}</td>
+                <td>{{ product.category}}</td>
                 <td>
-                    <a routerLink="/admin/products/new">Edit</a>
+                    <a [routerLink]="['/admin/products/', product.id]">Edit</a>
                 </td>
             </tr>
         </tbody>

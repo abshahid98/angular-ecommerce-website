@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'admin/products/new',
     component: ProductFormComponent,
   },
+  {
+    path: 'admin/products/:id',
+    component: ProductFormComponent,
+  },
   { path: '**', redirectTo: '/home' },
 ];
 

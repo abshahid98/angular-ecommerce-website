@@ -5,7 +5,7 @@ import {
 } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 //import { Tutorial } from '../models/tutorial.model';
-
+import { Product } from 'src/app/shared/interfaces/product';
 @Injectable({
   providedIn: 'root',
 })
@@ -18,20 +18,27 @@ export class FirebaseService {
     private db: AngularFireDatabase,
     private firestore: AngularFirestore
   ) {}
-  get(collection: string, uid: string) {
-    return this.db.object('/' + collection + '/' + uid);
+  // get(collection: string, uid: string) {
+  //   return this.db.object('/' + collection + '/' + uid);
+  // }
+  getAll(collection: string) {
+    return this.firestore.collection(collection);
   }
-  getAll() {
-    return this.db.list('/admins');
+  create(collection: string, product: Product) {
+    return this.firestore.collection(collection).add(product);
   }
-  getAdmin(email: string) {
-    return this.db.list('/admins/email/' + email);
-  }
+  // getAdmin(email: string) {
+  //   return this.db.list('/admins/email/' + email);
+  // }
   getDocumentByKey(collectionName: string, documentKey: string) {
     return this.firestore
       .collection(collectionName)
       .doc(documentKey)
       .valueChanges();
+  }
+
+  update(collectionName: string, id: string, data: any): Promise<void> {
+    return this.firestore.collection(collectionName).doc(id).update(data);
   }
   //   getAll(): AngularFireList<Tutorial> {
   //     return this.tutorialsRef;
