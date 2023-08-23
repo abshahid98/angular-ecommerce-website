@@ -27,17 +27,17 @@ export class AdapterService {
     private router: Router
   ) {}
 
-  signup(username: string, password: string) {
-    return this.http.post<AuthResponse>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
-        API.firebase.apiKey,
-      {
-        email: username,
-        password: password,
-        returnSecureToken: true,
-      }
-    );
-  }
+  // signup(username: string, password: string) {
+  //   return this.http.post<AuthResponse>(
+  //     'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
+  //       API.firebase.apiKey,
+  //     {
+  //       email: username,
+  //       password: password,
+  //       returnSecureToken: true,
+  //     }
+  //   );
+  // }
 
   login(username: string, password: string) {
     //console.log('in adapter');
