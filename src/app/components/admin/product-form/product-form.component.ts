@@ -30,7 +30,13 @@ export class ProductFormComponent implements OnInit {
     }
     this.router.navigate(['/admin/products']);
   }
-  delete() {}
+  delete() {
+    if (!confirm('Are you sure you want to delete this product?')) return;
+    if (this.id) {
+      this.firebaseService.delete('products', this.id);
+      this.router.navigate(['/admin/products']);
+    }
+  }
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id)

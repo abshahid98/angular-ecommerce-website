@@ -53,6 +53,36 @@ export class AuthService implements OnInit {
     });
     //return isAdmin;
   }
+  public signup({ fullName, email, password }: User) {
+    //console.log('in auth');
+    let isAdmin = false;
+    this.adapter.signup(fullName, email, password);
+    //.subscribe({
+    //   next: (response: any) => {
+    //     //console.log('res--' + response);
+    //     this.obs = this.firebaseService
+    //       .getDocumentByKey('admins', response.localId)
+    //       .subscribe((documentData: any) => {
+    //         console.log('Document Data:', documentData);
+    //         response.isAdmin = documentData != undefined ? true : false;
+    //         this.setLoginDataInStorage(response);
+    //       });
+    //   },
+    //   error: (error) => {
+    //     //console.log('error--' + error);
+    //     // this.notificationService.error(
+    //     //   'You have entered wrong credentials',
+    //     //   '',
+    //     //   true,
+    //     //   {
+    //     //     verticalPosition: 'bottom',
+    //     //     horizontalPosition: 'right',
+    //     //   }
+    //     // );
+    //   },
+    // });
+    //return isAdmin;
+  }
 
   public forgetPass(email: string) {}
 

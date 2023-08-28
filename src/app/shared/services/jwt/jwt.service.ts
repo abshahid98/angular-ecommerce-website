@@ -24,13 +24,15 @@ export class JwtService {
    * @method getToken
    * @return
    */
-  getLoginDetails(): { [key: string]: boolean } {
+  getLoginDetails(): { [key: string]: any } {
     const userData = this.getUserData();
 
     const isLoggedIn = userData && userData.idToken ? true : false;
     const isAdmin = userData ? userData.isAdmin : false;
+    const name = userData ? userData.displayName : 'User';
 
     return {
+      name: name,
       isLoggedIn: isLoggedIn,
       isAdmin: isAdmin,
     };
