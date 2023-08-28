@@ -1,0 +1,37 @@
+<div class="container" id="container">
+    <form [formGroup]="authForm" class="login-container">
+        <h1>Join E-Shop Now</h1>
+        <div>
+            <mat-form-field floatLabel="always" class="btn-custom mt-3 mb-4" appearance="outline">
+                <mat-label>Full Name</mat-label>
+
+                <input matInput type="fullName" formControlName="fullName" />
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field floatLabel="always" class="btn-custom mt-3 mb-4" appearance="outline">
+                <mat-label>Email Address</mat-label>
+
+                <input matInput type="email" formControlName="email" />
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field floatLabel="always" class="btn-custom mb-4" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" />
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field floatLabel="always" class="btn-custom mb-4" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" formControlName="confirmPassword" />
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button class="sign-in" (click)="signup()">
+                Sign Up
+            </button>
+        </div>
+    </form>
+</div>

@@ -14,16 +14,18 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
 // import { Router, NavigationStart } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { SignupComponent } from '../signup/signup.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   //public appUser!: Boolean;
   //public isAdmin: Boolean = true;
   private destroyed$ = new Subject();
-  @Input('appUser') appUser!: { [key: string]: boolean };
+  selected_header = 'home';
+  @Input('appUser') appUser!: { [key: string]: any };
   constructor(
     // private popupService: PopupService,
 
@@ -31,6 +33,13 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private readonly matDialog: MatDialog
   ) {
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.selected_header = event
+          ? event.url.split('/')[1]
+          : this.selected_header;
+      }
+    });
     // router.events.forEach((event) => {
     //   if (event instanceof NavigationStart) {
     //     setTimeout(() => {
@@ -51,11 +60,26 @@ export class HeaderComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selected_header = window.location.pathname.split('/')[1];
+    console.log(this.selected_header);
+  }
 
   openLoginPopup() {
     //this.popupService.openPopup();
     const dialogRef = this.matDialog.open(LoginComponent, {
+      data: {
+        /* data to pass to the popup if needed */
+      },
+    });
+
+    // dialogRef.afterClosed().subscribe(() => {
+    //   this.popupService.closePopup();
+    // });
+  }
+  openSignupPopup() {
+    //this.popupService.openPopup();
+    const dialogRef = this.matDialog.open(SignupComponent, {
       data: {
         /* data to pass to the popup if needed */
       },

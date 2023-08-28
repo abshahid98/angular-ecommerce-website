@@ -7,19 +7,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                <li [ngClass]="{form_selected: selected_header === 'home'}" class="nav-item">
                     <a class="nav-link" aria-current="page" (click)="goTo('home')">Home</a>
                 </li>
-                <li class="nav-item">
+                <li [ngClass]="{form_selected: selected_header === 'men'}" class="nav-item">
                     <a class="nav-link" (click)="goTo('men')">Men</a>
                 </li>
-                <li class="nav-item">
+                <li [ngClass]="{form_selected: selected_header === 'women'}" class="nav-item">
                     <a class="nav-link" (click)="goTo('women')">Women</a>
                 </li>
-                <li class="nav-item">
+                <li [ngClass]="{form_selected: selected_header === 'kids'}" class="nav-item">
                     <a class="nav-link" (click)="goTo('kids')">Kids</a>
                 </li>
-                <li class="nav-item">
+                <li [ngClass]="{form_selected: selected_header === 'summer-sale'}" class="nav-item">
                     <a class="nav-link" (click)="goTo('summer-sale')">Summer Sale <span id="newBadge"
                             class="badge rounded-pill bg-success">New</span></a>
                 </li>
@@ -54,7 +54,7 @@
             <div class="dropdown" *ngIf="appUser['isLoggedIn']; else anonymousUser">
                 <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    X User
+                    {{appUser['name']}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
                     <a *ngIf="!appUser['isAdmin']" class="dropdown-item" routerLink="/my/orders">My Orders</a>
@@ -68,7 +68,7 @@
 
             <ng-template #anonymousUser>
                 <button class="btn btn-success" (click)="openLoginPopup()">Login</button>
-                <button style="margin-left: 5px;" class="btn btn-secondary" (click)="openLoginPopup()">Signup</button>
+                <button style="margin-left: 5px;" class="btn btn-secondary" (click)="openSignupPopup()">Signup</button>
             </ng-template>
 
 

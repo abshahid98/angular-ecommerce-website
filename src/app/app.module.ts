@@ -46,6 +46,7 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SignupComponent } from './components/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     ProductFormComponent,
     SpinnerComponent,
     Spinner2Component,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

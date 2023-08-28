@@ -52,9 +52,9 @@ export class FirebaseService {
   //     return this.tutorialsRef.update(key, value);
   //   }
 
-  //   delete(key: string): Promise<void> {
-  //     return this.tutorialsRef.remove(key);
-  //   }
+  delete(collectionName: string, id: string): Promise<void> {
+    return this.firestore.collection(collectionName).doc(id).delete();
+  }
 
   //   deleteAll(): Promise<void> {
   //     return this.tutorialsRef.remove();
