@@ -28,9 +28,9 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
             <a *ngIf="appUser['isLoggedIn']" class="nav-link">
-                <i *ngIf="!appUser['isAdmin']" class="fa fa-sharp fa-solid fa-shopping-cart" aria-hidden="true"
-                    (click)="goTo('shopping-cart')"><span class="badge badge-warning" id="newBadge">
-                        1
+                <i *ngIf="!appUser['isAdmin'] && cart$" class="fa fa-sharp fa-solid fa-shopping-cart" aria-hidden="true"
+                    (click)="goTo('shopping-cart')"><span *ngIf="cart$.totalItemsCount!==0" class="badge badge-warning" id="newBadge">
+                        {{ cart$.totalItemsCount }}
                     </span></i>
 
             </a>
