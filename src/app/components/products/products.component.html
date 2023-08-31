@@ -1,7 +1,7 @@
 <div class="product-container">
-    <ng-container *ngFor="let p of filteredProducts">
+    <ng-container *ngFor="let p of filteredProducts | async">
         <div class="product-item">
-            <app-product-card [product]="p"></app-product-card>
+            <app-product-card [product]="p" [shopping-cart]="cart$"></app-product-card>
         </div>
     </ng-container>
 </div>

@@ -15,7 +15,13 @@ export class ProductFormComponent implements OnInit {
   //   category: 'Electronics',
   //   imageUrl: 'https://source.unsplash.com/300x200/?fashion',
   // };
-  product: Product = { title: '', price: 0.0, category: '', imageUrl: '' };
+  product: Product = {
+    id: '',
+    title: '',
+    price: 0.0,
+    category: '',
+    imageUrl: '',
+  };
   id!: string | null;
   constructor(
     private router: Router,

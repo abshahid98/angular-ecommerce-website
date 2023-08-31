@@ -13,8 +13,11 @@ import { AppUser } from '../../shared/interfaces/app-user';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 // import { Router, NavigationStart } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { SignupComponent } from '../signup/signup.component';
+import { ShoppingCart } from 'src/app/shared/interfaces/shopping-cart';
+import { ShoppingCartService } from 'src/app/shared/services/shopping-cart/shopping-cart.service';
+import { ShoppingCartItem } from 'src/app/shared/interfaces/shopping-cart-item';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -23,7 +26,8 @@ import { SignupComponent } from '../signup/signup.component';
 export class HeaderComponent implements OnInit {
   //public appUser!: Boolean;
   //public isAdmin: Boolean = true;
-  private destroyed$ = new Subject();
+  cart$!: ShoppingCart;
+  private cartSubscription!: Subscription;
   selected_header = 'home';
   @Input('appUser') appUser!: { [key: string]: any };
   constructor(
@@ -31,8 +35,10 @@ export class HeaderComponent implements OnInit {
 
     private authService: AuthService,
     private router: Router,
+    private shoppingCartService: ShoppingCartService,
     private readonly matDialog: MatDialog
   ) {
+    this.cartSubscription = new Subscription();
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.selected_header = event
@@ -62,7 +68,21 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.selected_header = window.location.pathname.split('/')[1];
-    console.log(this.selected_header);
+    this.cartSubscription = this.shoppingCartService
+      .getShoppingCartCollection()
+      .snapshotChanges()
+      .subscribe((actions) => {
+        const cartItems: { [itemId: string]: any } = {};
+
+        // Process the actions and add the document ID as the itemId
+        actions.forEach((action) => {
+          const data = action.payload.doc.data() as ShoppingCartItem;
+          data.id = action.payload.doc.id;
+          cartItems[data.id] = data; // Include the document ID as a field
+        });
+
+        this.cart$ = new ShoppingCart(cartItems);
+      });
   }
 
   openLoginPopup() {
@@ -88,6 +108,9 @@ export class HeaderComponent implements OnInit {
     // dialogRef.afterClosed().subscribe(() => {
     //   this.popupService.closePopup();
     // });
+  }
+  ngOnDestroy() {
+    this.cartSubscription.unsubscribe();
   }
   logout() {
     this.authService.logout();
