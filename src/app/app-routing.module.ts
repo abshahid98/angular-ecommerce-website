@@ -9,6 +9,7 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -45,12 +46,12 @@ const routes: Routes = [
   {
     path: 'admin/products',
     component: AdminProductsComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   {
     path: 'admin/orders',
     component: AdminOrdersComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   {
     path: 'my/orders',
@@ -60,12 +61,12 @@ const routes: Routes = [
   {
     path: 'admin/products/new',
     component: ProductFormComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   {
     path: 'admin/products/:id',
     component: ProductFormComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   { path: '**', redirectTo: '/home' },
 ];

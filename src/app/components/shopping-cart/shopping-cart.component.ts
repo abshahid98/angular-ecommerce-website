@@ -34,7 +34,8 @@ export class ShoppingCartComponent implements OnInit {
   }
   async ngOnDestroy() {
     this.cartSubscription.unsubscribe();
-    (await this.clearCartSubscription).unsubscribe();
+    if (this.clearCartSubscription)
+      (await this.clearCartSubscription).unsubscribe();
   }
   clearCart() {
     this.clearCartSubscription = this.shoppingCartService.clearCart();
