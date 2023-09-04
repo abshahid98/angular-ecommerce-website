@@ -33,6 +33,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { Spinner2Component } from './components/spinner2/spinner2.component';
 
 /** Packages */
+import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -48,6 +49,7 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ProductQuantityComponent } from './components/products/product-quantity/product-quantity.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +72,7 @@ import { ProductQuantityComponent } from './components/products/product-quantity
     Spinner2Component,
     SignupComponent,
     ProductQuantityComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { ProductQuantityComponent } from './components/products/product-quantity
     HttpClientModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
+    MatCardModule,
     // DataTableModule.forRoot(),
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideFirestore(() => getFirestore()),

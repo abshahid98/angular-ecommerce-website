@@ -1,8 +1,8 @@
-<div class="div container">
+<div *ngIf="cart$" class=" container">
     <h4>Shipping</h4>
     <div class="row">
         <div class="col-6">
-            <app-shipping-form></app-shipping-form>
+            <app-shipping-form [cart]="cart$"></app-shipping-form>
         </div>
 
         <div class="col-6">

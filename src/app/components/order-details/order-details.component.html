@@ -1,0 +1,33 @@
+<div class="container" id="container">
+    <mat-card class="form-container">
+        <div class="d-flex justify-content-center">
+            <mat-card-header>
+                <mat-card-title>Order Details</mat-card-title>
+            </mat-card-header>
+        </div>
+
+
+        <mat-card-content>
+            <!-- <p><strong>User ID:</strong> {{ data.order.userId }}</p> -->
+            <p><strong>Date Placed:</strong> {{ data.order.datePlaced | date }}</p>
+            <p><strong>Shipping Information:</strong></p>
+            <p><strong>Name:</strong> {{ data.order.shipping.name }}</p>
+            <p><strong>Email:</strong> {{ data.order.shipping.email }}</p>
+            <p><strong>Phone Number:</strong> {{ data.order.shipping.number }}</p>
+            <p><strong>Address:</strong> {{ data.order.shipping.address }}</p>
+
+            <p><strong>Order Items:</strong></p>
+            <div *ngFor="let item of data.order.items">
+                <div class="item-container">
+                    <!-- <img class="product-image" [src]="item.product.imageUrl" alt="{{ item.product.title }}" /> -->
+                    <div class="product-details">
+
+                        <p>{{ item.quantity }} x {{ item.product.title }} = ${{ item.totalPrice }}</p>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Total Price:</strong> ${{ data.order.orderAmount }}</p>
+
+        </mat-card-content>
+    </mat-card>
+</div>
