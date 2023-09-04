@@ -35,6 +35,6 @@ export class ShippingFormComponent implements OnInit {
     let order = new Order(this.userId, this.shipping, this.cart);
     const orderData = order.toFirestoreObject();
     let result = await this.orderService.placeOrder(orderData);
-    //this.router.navigate(['/home']);
+    this.router.navigate(['/my/orders']);
   }
 }
