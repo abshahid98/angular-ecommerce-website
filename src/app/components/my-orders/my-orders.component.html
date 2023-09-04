@@ -9,11 +9,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let order of orders">
+            <tr *ngFor="let order of orders | async">
                 <td>{{ order.shipping.name }}</td>
                 <td>{{ order.datePlaced | date}}</td>
                 <td>
-                    <a href="#">View</a>
+                    <button class="btn btn-primary" (click)="openOrderPopup(order)">View</button>
                 </td>
             </tr>
         </tbody>

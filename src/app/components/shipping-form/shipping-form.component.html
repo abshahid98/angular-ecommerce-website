@@ -1,32 +1,35 @@
-<form>
+<form #f="ngForm">
     <div class="form-group">
-        <label for="">Name</label>
-        <input name="name" type="text" class="form-control" required>
-        <!-- <div class="alert alert-danger">
-                <div>Name is required.</div>
-            </div> -->
+        <label for="name">Name</label>
+        <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+        <!-- <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                    <div *ngIf="name.errors">Name is required.</div>
+                </div> -->
     </div>
 
 
 
 
     <div class="form-group">
-        <label for="">Email</label>
-        <input name="name" type="text" class="form-control" required>
-        <!-- <div class="alert alert-danger">
-                        <div>Name is required.</div>
-                    </div> -->
-    </div>
-    <div class="form-group">
-        <label for="">Contact Number</label>
-        <input name="name" type="text" class="form-control" required>
+        <label for="email">Email</label>
+        <input #email="ngModel" name="email" [(ngModel)]="shipping.email" type="text" class="form-control" required email>
+
         <!-- <div class="alert alert-danger">
                         <div>Name is required.</div>
                     </div> -->
     </div>
     <div class="form-group">
-        <label for="">Address</label>
-        <input name="name" type="text" class="form-control" required>
+        <label for="number">Contact Number</label>
+        <!-- <input name="name" type="text" class="form-control" required> -->
+        <input #number="ngModel" name="number" [(ngModel)]="shipping.number" type="text" class="form-control" required>
+        <!-- <div class="alert alert-danger">
+                        <div>Name is required.</div>
+                    </div> -->
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input #address="ngModel" name="address" [(ngModel)]="shipping.address" type="text" class="form-control" required>
+
         <!-- <div class="alert alert-danger">
                         <div>Name is required.</div>
                     </div> -->
@@ -64,7 +67,7 @@
 
     <div class="row mt-3 justify-content-end">
         <div class="col-auto">
-            <button (click)="placeOrder()" class="btn btn-primary">Place Order</button>
+            <button [disabled]="!f.valid" (click)="placeOrder()" class="btn btn-primary">Place Order</button>
         </div>
     </div>
 </form>

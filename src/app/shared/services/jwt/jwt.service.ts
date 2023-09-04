@@ -74,17 +74,17 @@ export class JwtService {
    * @method getUserData
    * @return
    */
-  // getUserData(): any {
-  //   var userData = localStorage['userData'];
-  //   if (userData !== undefined) {
-  //     return JSON.parse(userData);
-  //   } else {
-  //     return '';
-  //     // throw new Error(
-  //     //   this.translate.transform('generic[responses][error][token][001]')
-  //     // );
-  //   }
-  // }
+  getUserId(): string {
+    var userData = localStorage['userData'];
+    if (userData !== undefined) {
+      return JSON.parse(userData).localId;
+    } else {
+      return '';
+      // throw new Error(
+      //   this.translate.transform('generic[responses][error][token][001]')
+      // );
+    }
+  }
 
   /**
    * This method takes the userData as an argument and saves it into the Session storage.
