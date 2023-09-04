@@ -8,13 +8,6 @@ import { FirebaseService } from 'src/app/shared/services/firebase/firebase.servi
   styleUrls: ['./product-form.component.css'],
 })
 export class ProductFormComponent implements OnInit {
-  // product: Product = {
-  //   id: '1',
-  //   title: 'Dummy Product',
-  //   price: 29.99,
-  //   category: 'Electronics',
-  //   imageUrl: 'https://source.unsplash.com/300x200/?fashion',
-  // };
   product: Product = {
     id: '',
     title: '',

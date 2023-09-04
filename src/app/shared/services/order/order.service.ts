@@ -12,7 +12,6 @@ export class OrderService {
   ) {}
 
   async placeOrder(order: any) {
-    console.log(order);
     let result = await this.firestore.collection('orders').add(order);
     this.shoppingCartService.clearCart();
     return result;
@@ -26,6 +25,6 @@ export class OrderService {
     return this.firestore.collection(
       'orders',
       (ref) => ref.where('userId', '==', userId) // Filter by userId
-    ); // Use `valueChanges()` to get an observable of the filtered order documents.
+    );
   }
 }

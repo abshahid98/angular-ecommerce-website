@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../../shared/interfaces/product';
-import { products } from '../../shared/models/products.model';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
-import { AngularFireList } from '@angular/fire/compat/database';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { ShoppingCart } from 'src/app/shared/interfaces/shopping-cart';
@@ -54,7 +52,6 @@ export class ProductsComponent implements OnInit {
   private extractCategoryFromRoute(): string {
     const urlSegments = this.activatedRoute.snapshot.url;
     if (urlSegments.length > 0) {
-      // Assuming the category is the first segment in the URL
       return urlSegments[0].path;
     }
     return '';
@@ -63,12 +60,6 @@ export class ProductsComponent implements OnInit {
   private populateProducts() {
     this.products = this.firebaseService
       .getAll('products')
-      // .valueChanges()
-      // .subscribe((products: any[]) => {
-      //   console.log(products);
-      //   this.products = products;
-      //   this.applyFilter();
-      // });
       .snapshotChanges()
       .pipe(
         map((actions) => {
@@ -81,6 +72,7 @@ export class ProductsComponent implements OnInit {
       );
     this.applyFilter();
   }
+
   private applyFilter() {
     this.filteredProducts = this.products.pipe(
       map((products) => {
@@ -91,6 +83,9 @@ export class ProductsComponent implements OnInit {
         }
       })
     );
-    //console.log(this.filteredProducts);
+  }
+
+  ngOnDestroy() {
+    this.cartSubscription.unsubscribe();
   }
 }
