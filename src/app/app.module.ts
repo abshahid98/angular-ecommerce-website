@@ -2,8 +2,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-// import { DataTableModule } from 'angular5-data-table';
-// import { HttpModule } from '@angular/http';
 import { environment } from 'src/environments/environment';
 import {
   HttpClientModule,
@@ -11,13 +9,11 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { Spinner2Interceptor } from './components/spinner2/spinner2.interceptor';
 import { Spinner2Service } from './components/spinner2/spinner2.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
+
 /** firebase */
-// import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-// import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
@@ -86,9 +82,6 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     ReactiveFormsModule,
     NgxSpinnerModule,
     MatCardModule,
-    // DataTableModule.forRoot(),
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],

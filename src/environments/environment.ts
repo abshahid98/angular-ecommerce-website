@@ -5,9 +5,6 @@
 export const environment = {
   production: false,
   lang: 'en',
-  // firebase: {
-  //   key: 'AIzaSyD8yA_38rHfcNeNw3YDa7rsnycojIShpG0',
-  // },
   firebase: {
     apiKey: 'AIzaSyD8yA_38rHfcNeNw3YDa7rsnycojIShpG0',
     authDomain: 'angular-ecommerce-2af43.firebaseapp.com',

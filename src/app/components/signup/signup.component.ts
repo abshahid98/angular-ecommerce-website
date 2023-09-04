@@ -1,9 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { Router } from '@angular/router';
 import { DialogRef } from '@angular/cdk/dialog';
-// import { MatDialog } from '@angular/material/dialog';
-
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { Router } from '@angular/router';
@@ -34,13 +31,10 @@ export class SignupComponent implements OnInit {
     });
   }
   signup() {
-    //console.log(this.authForm.value);
     this.isSubmitted = true;
-    //console.log('login' + this.authForm.value);
     if (this.authForm.invalid) {
       return;
     }
-    //console.log('after login');
     this.dialogRef.close();
     this.authService.signup(this.authForm.value);
     this.router.navigate(['/home']);

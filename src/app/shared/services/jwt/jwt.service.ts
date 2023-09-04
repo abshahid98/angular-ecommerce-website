@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { TranslatePipe } from 'src/app/pipes/translate/translate.pipe';
-/**
- * Injects the JSON web token service in the project
- */
 @Injectable({
   providedIn: 'root',
 })
@@ -52,21 +48,6 @@ export class JwtService {
       throw new Error(err);
     }
   }
-  /**
-   * This method deletes the token from local Storage.
-   *
-   * @method destroyToken
-   * @return
-   */
-  // destroyToken() {
-  //   if (this.getToken() !== undefined) {
-  //     localStorage.removeItem('jwtToken');
-  //   } else {
-  //     throw new Error(
-  //       this.translate.transform('generic[responses][error][token][001]')
-  //     );
-  //   }
-  // }
 
   /**
    * This method fetches the userData from local storage and returns it.
@@ -80,9 +61,6 @@ export class JwtService {
       return JSON.parse(userData).localId;
     } else {
       return '';
-      // throw new Error(
-      //   this.translate.transform('generic[responses][error][token][001]')
-      // );
     }
   }
 
@@ -100,6 +78,7 @@ export class JwtService {
       throw new Error(err);
     }
   }
+
   getUserData(): any {
     var userData = localStorage['userData'];
     if (userData !== undefined) {
@@ -108,6 +87,7 @@ export class JwtService {
       return '';
     }
   }
+
   destroyUserData() {
     if (this.getUserData() !== undefined) {
       localStorage.removeItem('userData');

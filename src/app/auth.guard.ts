@@ -6,10 +6,8 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-// import { IHNotificationService } from 'ih-ng-notification';
 import { Observable } from 'rxjs';
 import { AuthService } from './shared/services/auth/auth.service';
-//import { AuthService } from './services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
