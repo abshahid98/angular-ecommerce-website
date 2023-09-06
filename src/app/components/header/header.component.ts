@@ -5,9 +5,9 @@ import { LoginComponent } from '../login/login.component';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { Subscription } from 'rxjs';
 import { SignupComponent } from '../signup/signup.component';
-import { ShoppingCart } from 'src/app/shared/interfaces/shopping-cart';
+import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart/shopping-cart.service';
-import { ShoppingCartItem } from 'src/app/shared/interfaces/shopping-cart-item';
+import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { IHNotificationService } from 'ih-ng-notification';
 import { Subscription } from 'rxjs';
-import { ShoppingCartItem } from 'src/app/shared/interfaces/shopping-cart-item';
+import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart/shopping-cart.service';
-import { ShoppingCart } from '../../shared/interfaces/shopping-cart';
+import { ShoppingCart } from '../../shared/models/shopping-cart';
 import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-shopping-cart',
@@ -21,6 +22,7 @@ export class ShoppingCartComponent implements OnInit {
     private authService: AuthService,
     private shoppingCartService: ShoppingCartService,
     private readonly matDialog: MatDialog,
+    private readonly notificationService: IHNotificationService,
     private router: Router
   ) {
     this.cartSubscription = new Subscription();
@@ -51,6 +53,10 @@ export class ShoppingCartComponent implements OnInit {
     if (this.authService.isLoggedIn()['isLoggedIn']) {
       this.router.navigate(['/checkout']);
     } else {
+      this.notificationService.info('Please login first', '', true, {
+        verticalPosition: 'bottom',
+        horizontalPosition: 'right',
+      });
       const dialogRef = this.matDialog.open(LoginComponent, {
         data: {
           /* data to pass to the popup if needed */

@@ -3,37 +3,13 @@
     <p>
         <a routerLink="/admin/products/new" class="btn btn-primary float-right">+ New Product</a>
     </p>
-    <!-- <h1 align="center"> Coming soon...</h1> -->
-    <!-- <p>
-        <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
-    </p> -->
-
-    <!-- <data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
-        <data-table-column [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true">
-            <ng-template #dataTableCell let-item="item">
-                {{ item.title }}
-            </ng-template>
-        </data-table-column>
-        <data-table-column [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
-            <ng-template #dataTableCell let-item="item">
-                {{ item.price |currency:'USD':true }}
-            </ng-template>
-        </data-table-column>
-
-
-        <data-table-column [property]="'$key'">
-            <ng-template #dataTableCell let-item="item">
-                <a [routerLink]="['/admin/products/', item.$key]">Edit</a>
-            </ng-template>
-        </data-table-column>
-    </data-table> -->
     <table class="table" style="margin-top:60px">
         <thead>
             <tr>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Category</th>
-                <th>Action</th>
+                <th style="padding-left: 20px;">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +18,8 @@
                 <td>{{ product.price | currency:'USD':true}}</td>
                 <td>{{ product.category}}</td>
                 <td>
-                    <a [routerLink]="['/admin/products/', product.id]">Edit</a>
+                    <button class="btn btn-primary" [routerLink]="['/admin/products/', product.id]">Edit</button>
+                    <button class="btn btn-danger" style="margin-left:5px;" (click)="delete(product)">Delete</button>
                 </td>
             </tr>
         </tbody>

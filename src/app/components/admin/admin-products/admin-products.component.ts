@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Product } from 'src/app/shared/interfaces/product';
+import { Product } from 'src/app/shared/models/product';
 import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 
 @Component({
@@ -25,5 +25,12 @@ export class AdminProductsComponent implements OnInit {
       );
   }
 
+  delete(product: Product): void {
+    if (!confirm('Are you sure you want to delete this product?')) return;
+    if (product.id) {
+      this.firebaseService.delete('products', product.id);
+      // this.router.navigate(['/admin/products']);
+    }
+  }
   ngOnInit(): void {}
 }

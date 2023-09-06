@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Spinner2Interceptor } from './components/spinner2/spinner2.interceptor';
 import { Spinner2Service } from './components/spinner2/spinner2.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { IHNotificationModule } from 'ih-ng-notification';
 
 /** firebase */
 import { AngularFireModule } from '@angular/fire/compat';
@@ -71,6 +72,7 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     OrderDetailsComponent,
   ],
   imports: [
+    IHNotificationModule,
     BrowserModule,
     AppRoutingModule,
     MatDialogModule,

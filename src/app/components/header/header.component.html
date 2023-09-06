@@ -35,22 +35,6 @@
 
             </a>
             <ul></ul>
-
-            <!-- <ng-template #anonymousUser>
-                <button class="btn btn-success" (click)="openLoginPopup()">Login</button>
-            </ng-template> -->
-            <!-- <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
-                <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">X User</a>
-                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
-                    <ng-container *ngIf="appUser.isAdmin">
-                        <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
-                        <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
-                    </ng-container>
-                    <a class="dropdown-item" (click)="logout()">Log Out</a>
-                </div>
-            </li> -->
             <div class="dropdown" *ngIf="appUser['isLoggedIn']; else anonymousUser">
                 <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -64,8 +48,6 @@
                     <a class="dropdown-item" (click)="logout()">Log Out</a>
                 </div>
             </div>
-
-
             <ng-template #anonymousUser>
                 <button class="btn btn-success" (click)="openLoginPopup()">Login</button>
                 <button style="margin-left: 5px;" class="btn btn-secondary" (click)="openSignupPopup()">Signup</button>
