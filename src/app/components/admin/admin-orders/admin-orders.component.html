@@ -3,17 +3,22 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Date Placed</th>
                 <th>Customer</th>
-                <th>Date</th>
+                <th>Address</th>
+                <th>Total Bill</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let order of orders | async">
-                <td>{{ order.shipping.name }}</td>
+
                 <td>{{ order.datePlaced | date}}</td>
+                <td>{{ order.shipping.name }}</td>
+                <td>{{ order.shipping.address }}</td>
+                <td>${{ order.orderAmount }}</td>
                 <td>
-                    <button class="btn btn-primary" (click)="openOrderPopup(order)">View</button>
+                    <button class="btn btn-primary" (click)="openOrderPopup(order)">View Details</button>
                 </td>
             </tr>
         </tbody>

@@ -9,7 +9,7 @@
                 <th>Product</th>
                 <th>Price</th>
                 <th>Category</th>
-                <th>Action</th>
+                <th style="padding-left: 20px;">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,8 @@
                 <td>{{ product.price | currency:'USD':true}}</td>
                 <td>{{ product.category}}</td>
                 <td>
-                    <a [routerLink]="['/admin/products/', product.id]">Edit</a>
+                    <button class="btn btn-primary" [routerLink]="['/admin/products/', product.id]">Edit</button>
+                    <button class="btn btn-danger" style="margin-left:5px;" (click)="delete(product)">Delete</button>
                 </td>
             </tr>
         </tbody>

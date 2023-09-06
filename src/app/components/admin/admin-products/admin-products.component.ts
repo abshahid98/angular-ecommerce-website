@@ -25,5 +25,12 @@ export class AdminProductsComponent implements OnInit {
       );
   }
 
+  delete(product: Product): void {
+    if (!confirm('Are you sure you want to delete this product?')) return;
+    if (product.id) {
+      this.firebaseService.delete('products', product.id);
+      // this.router.navigate(['/admin/products']);
+    }
+  }
   ngOnInit(): void {}
 }
