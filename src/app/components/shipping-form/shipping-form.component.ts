@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Order } from 'src/app/shared/interfaces/order';
-import { ShoppingCart } from 'src/app/shared/interfaces/shopping-cart';
+import { IHNotificationService } from 'ih-ng-notification';
+import { Order } from 'src/app/shared/models/order';
+import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
 import { JwtService } from 'src/app/shared/services/jwt/jwt.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 
@@ -18,6 +19,7 @@ export class ShippingFormComponent implements OnInit {
   constructor(
     private router: Router,
     private jwt: JwtService,
+    private readonly notificationService: IHNotificationService,
     private orderService: OrderService
   ) {}
 
@@ -29,6 +31,10 @@ export class ShippingFormComponent implements OnInit {
     let order = new Order(this.userId, this.shipping, this.cart);
     const orderData = order.toFirestoreObject();
     let result = await this.orderService.placeOrder(orderData);
+    this.notificationService.success('Order Placed Successfully!!', '', true, {
+      verticalPosition: 'bottom',
+      horizontalPosition: 'right',
+    });
     this.router.navigate(['/my/orders']);
   }
 }

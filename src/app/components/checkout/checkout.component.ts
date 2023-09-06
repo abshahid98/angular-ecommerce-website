@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ShoppingCart } from 'src/app/shared/interfaces/shopping-cart';
-import { ShoppingCartItem } from 'src/app/shared/interfaces/shopping-cart-item';
+import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
+import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart/shopping-cart.service';
 
 @Component({
