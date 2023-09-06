@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/shared/interfaces/product';
+import { Product } from 'src/app/shared/models/product';
 import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 @Component({
   selector: 'app-product-form',

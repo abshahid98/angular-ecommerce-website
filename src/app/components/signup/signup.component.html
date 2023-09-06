@@ -4,32 +4,42 @@
         <div>
             <mat-form-field floatLabel="always" class="btn-custom mt-3 mb-4" appearance="outline">
                 <mat-label>Full Name</mat-label>
-
                 <input matInput type="fullName" formControlName="fullName" />
+                <mat-error style="color:red" *ngIf="authForm.get('fullName')?.hasError('required')">Name is required</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field floatLabel="always" class="btn-custom mt-3 mb-4" appearance="outline">
                 <mat-label>Email Address</mat-label>
-
                 <input matInput type="email" formControlName="email" />
+                <mat-error style="color:red" *ngIf="authForm.get('email')?.hasError('email')">Invalid Email</mat-error>
+                <mat-error style="color:red" *ngIf="authForm.get('email')?.hasError('required')">Email is required</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field floatLabel="always" class="btn-custom mb-4" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" formControlName="password" />
+                <input matInput type="password" formControlName="password" minlength="6" />
+                <mat-error style="color:red" *ngIf="authForm.get('password')?.hasError('minlength')">Password should be at least 6
+                    characters</mat-error>
+                <mat-error style="color:red" *ngIf="authForm.get('password')?.hasError('required')">Password is required</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field floatLabel="always" class="btn-custom mb-4" appearance="outline">
                 <mat-label>Confirm Password</mat-label>
                 <input matInput type="password" formControlName="confirmPassword" />
+                <mat-error style="color:red" *ngIf="authForm.get('confirmPassword')?.hasError('required')">Password is required
+                </mat-error>
+
             </mat-form-field>
+            <div class="mismatch"
+                *ngIf="!authForm.get('confirmPassword')?.hasError('required') && (authForm.errors?.['passwordMismatch'] || authForm.hasError('passwordMismatch'))">
+                Passwords do not match</div>
         </div>
 
         <div>
-            <button class="sign-in" (click)="signup()">
+            <button [disabled]="!authForm.valid" class="sign-in" (click)="signup()">
                 Sign Up
             </button>
         </div>

@@ -5,8 +5,8 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { Product } from '../../interfaces/product';
-import { ShoppingCartItem } from '../../interfaces/shopping-cart-item';
+import { Product } from '../../models/product';
+import { ShoppingCartItem } from '../../models/shopping-cart-item';
 
 @Injectable({
   providedIn: 'root',

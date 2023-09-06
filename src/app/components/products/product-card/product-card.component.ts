@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShoppingCart } from 'src/app/shared/interfaces/shopping-cart';
+import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart/shopping-cart.service';
-import { Product } from '../../../shared/interfaces/product';
+import { Product } from '../../../shared/models/product';
 
 @Component({
   selector: 'app-product-card',

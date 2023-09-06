@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ShoppingCartItem } from 'src/app/shared/interfaces/shopping-cart-item';
+import { ShoppingCartItem } from 'src/app/shared/models/shopping-cart-item';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart/shopping-cart.service';
-import { ShoppingCart } from '../../shared/interfaces/shopping-cart';
+import { ShoppingCart } from '../../shared/models/shopping-cart';
 import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-shopping-cart',

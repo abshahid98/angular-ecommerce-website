@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Order } from 'src/app/shared/interfaces/order';
+import { Order } from 'src/app/shared/models/order';
 import { JwtService } from 'src/app/shared/services/jwt/jwt.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { MatDialog } from '@angular/material/dialog';

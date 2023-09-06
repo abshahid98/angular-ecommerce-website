@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { map, Observable } from 'rxjs';
-import { Order } from 'src/app/shared/interfaces/order';
+import { Order } from 'src/app/shared/models/order';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { OrderDetailsComponent } from '../../order-details/order-details.component';
 
